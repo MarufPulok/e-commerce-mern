@@ -11,6 +11,7 @@ import {
   InputGroup,
 } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
+import { Link } from "react-router-dom";
 
 const HeaderComponent = () => {
   return (
@@ -25,9 +26,9 @@ const HeaderComponent = () => {
           <Nav className="me-auto">
             <InputGroup>
               <DropdownButton id="dropdown-basic-button" title="All">
-                <Dropdown.Item href="#/action-1">Electronics</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Cars</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Books</Dropdown.Item>
+                <Dropdown.Item>Electronics</Dropdown.Item>
+                <Dropdown.Item>Cars</Dropdown.Item>
+                <Dropdown.Item>Books</Dropdown.Item>
               </DropdownButton>
 
               <Form.Control type="text" placeholder="Search in shop ..." />
@@ -41,27 +42,38 @@ const HeaderComponent = () => {
               <Nav.Link>
                 Admin
                 <span className="position-absolute top-1 start-10 translate-middle p-2 bg-danger border border-light rounded-circle"></span>
-                </Nav.Link>
+              </Nav.Link>
             </LinkContainer>
 
-            
-            <Nav.Link href="#pricing">
-              <Badge pill bg="danger">
-                2
-              </Badge>
-              CART
-            </Nav.Link>
+            {/* <Nav.Link href="#pricing">
+ 
+            </Nav.Link> */}
             <NavDropdown title="John Doe" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">My orders</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
+              <NavDropdown.Item as={Link} eventKey="/user/my-orders">
+                My orders
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
+              <NavDropdown.Item as={Link} eventKey="/user">
+                My profile
               </NavDropdown.Item>
+              <NavDropdown.Item>Logout</NavDropdown.Item>
             </NavDropdown>
+            <LinkContainer to="/login">
+              <Nav.Link>Login</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/register">
+              <Nav.Link>Register</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/cart">
+              <Nav.Link>
+                
+                <Badge pill bg="danger">
+                  2
+                </Badge>
+                <i className="bi bi-cart"></i>
+                
+                <span className="ms-1"> CART</span>
+              </Nav.Link>
+            </LinkContainer>
           </Nav>
         </Navbar.Collapse>
       </Container>
