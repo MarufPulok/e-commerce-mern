@@ -1,7 +1,11 @@
 import { Carousel } from "react-bootstrap";
 // import "../styles/Carousel.css";
+import {LinkContainer} from "react-router-bootstrap";
 
 const ProductCarouselComponent = () => {
+  const cursorPointer = {
+    cursor: "pointer",
+  }
   return (
     <Carousel>
       <Carousel.Item>
@@ -15,8 +19,10 @@ const ProductCarouselComponent = () => {
           alt="First slide"
         />
         <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <LinkContainer style={cursorPointer} to="/product-details">
+          <h3>Best seller demo category</h3>
+          </LinkContainer>
+          <p>Demo desc Lorem impsum</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -30,7 +36,9 @@ const ProductCarouselComponent = () => {
         />
 
         <Carousel.Caption>
-          <h3>Second slide label</h3>
+        <LinkContainer style={cursorPointer} to="/product-details">
+          <h3>Best seller demo1 category</h3>
+          </LinkContainer>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </Carousel.Caption>
       </Carousel.Item>
@@ -45,7 +53,9 @@ const ProductCarouselComponent = () => {
         />
 
         <Carousel.Caption>
-          <h3>Third slide label</h3>
+        <LinkContainer style={cursorPointer} to="/product-details">
+          <h3>Best seller demo2 category</h3>
+          </LinkContainer>
           <p>
             Praesent commodo cursus magna, vel scelerisque nisl consectetur.
           </p>
